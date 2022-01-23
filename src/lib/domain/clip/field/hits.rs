@@ -1,11 +1,11 @@
 use derive_more::Constructor;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug,Constructor, Deserialize, Serialize)]
+#[derive(Clone, Constructor, Debug, Deserialize, Serialize)]
 pub struct Hits(u64);
 
-imp Hits {
-    pub into_inner(self) -> u64{
-        self.0;
+impl Hits {
+    pub fn into_inner(self) -> u64 {
+        self.0
     }
 }
